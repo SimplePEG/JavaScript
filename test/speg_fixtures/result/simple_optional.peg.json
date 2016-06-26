@@ -1,0 +1,14 @@
+{
+  "type": "optional", 
+  "start_position": 0, 
+  "children": [
+    {
+      "type": "string", 
+      "start_position": 0, 
+      "match": "A", 
+      "end_position": 1
+    }
+  ], 
+  "match": "A", 
+  "end_position": 1
+}

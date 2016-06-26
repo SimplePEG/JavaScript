@@ -1,0 +1,4 @@
+GRAMMAR test
+
+a -> b;
+b -> "A";

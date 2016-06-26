@@ -1,0 +1,20 @@
+{
+  "type": "zero_or_more", 
+  "start_position": 0, 
+  "children": [
+    {
+      "type": "string", 
+      "start_position": 0, 
+      "match": "A", 
+      "end_position": 1
+    }, 
+    {
+      "type": "string", 
+      "start_position": 1, 
+      "match": "A", 
+      "end_position": 2
+    }
+  ], 
+  "match": "AA", 
+  "end_position": 2
+}

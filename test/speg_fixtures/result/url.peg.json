@@ -1,0 +1,277 @@
+{
+  "type": "sequence", 
+  "start_position": 0, 
+  "children": [
+    {
+      "type": "sequence", 
+      "start_position": 0, 
+      "children": [
+        {
+          "type": "string", 
+          "start_position": 0, 
+          "match": "http", 
+          "end_position": 4
+        }, 
+        {
+          "type": "optional", 
+          "start_position": 4, 
+          "children": null, 
+          "match": null, 
+          "end_position": 4
+        }
+      ], 
+      "match": "http", 
+      "end_position": 4
+    }, 
+    {
+      "type": "string", 
+      "start_position": 4, 
+      "match": "://", 
+      "end_position": 7
+    }, 
+    {
+      "type": "sequence", 
+      "start_position": 7, 
+      "children": [
+        {
+          "type": "sequence", 
+          "start_position": 7, 
+          "children": [
+            {
+              "type": "one_or_more", 
+              "start_position": 7, 
+              "children": [
+                {
+                  "type": "regex_char", 
+                  "start_position": 7, 
+                  "match": "i", 
+                  "end_position": 8
+                }, 
+                {
+                  "type": "regex_char", 
+                  "start_position": 8, 
+                  "match": "p", 
+                  "end_position": 9
+                }, 
+                {
+                  "type": "regex_char", 
+                  "start_position": 9, 
+                  "match": "o", 
+                  "end_position": 10
+                }, 
+                {
+                  "type": "regex_char", 
+                  "start_position": 10, 
+                  "match": "n", 
+                  "end_position": 11
+                }, 
+                {
+                  "type": "regex_char", 
+                  "start_position": 11, 
+                  "match": "w", 
+                  "end_position": 12
+                }, 
+                {
+                  "type": "regex_char", 
+                  "start_position": 12, 
+                  "match": "e", 
+                  "end_position": 13
+                }, 
+                {
+                  "type": "regex_char", 
+                  "start_position": 13, 
+                  "match": "b", 
+                  "end_position": 14
+                }
+              ], 
+              "match": "iponweb", 
+              "end_position": 14
+            }, 
+            {
+              "type": "zero_or_more", 
+              "start_position": 14, 
+              "children": [
+                {
+                  "type": "sequence", 
+                  "start_position": 14, 
+                  "children": [
+                    {
+                      "type": "string", 
+                      "start_position": 14, 
+                      "match": ".", 
+                      "end_position": 15
+                    }, 
+                    {
+                      "type": "one_or_more", 
+                      "start_position": 15, 
+                      "children": [
+                        {
+                          "type": "regex_char", 
+                          "start_position": 15, 
+                          "match": "n", 
+                          "end_position": 16
+                        }, 
+                        {
+                          "type": "regex_char", 
+                          "start_position": 16, 
+                          "match": "e", 
+                          "end_position": 17
+                        }, 
+                        {
+                          "type": "regex_char", 
+                          "start_position": 17, 
+                          "match": "t", 
+                          "end_position": 18
+                        }
+                      ], 
+                      "match": "net", 
+                      "end_position": 18
+                    }
+                  ], 
+                  "match": ".net", 
+                  "end_position": 18
+                }
+              ], 
+              "match": ".net", 
+              "end_position": 18
+            }
+          ], 
+          "match": "iponweb.net", 
+          "end_position": 18
+        }, 
+        {
+          "type": "optional", 
+          "start_position": 18, 
+          "children": null, 
+          "match": null, 
+          "end_position": 18
+        }
+      ], 
+      "match": "iponweb.net", 
+      "end_position": 18
+    }, 
+    {
+      "type": "sequence", 
+      "start_position": 18, 
+      "children": [
+        {
+          "type": "string", 
+          "start_position": 18, 
+          "match": "/", 
+          "end_position": 19
+        }, 
+        {
+          "type": "zero_or_more", 
+          "start_position": 19, 
+          "children": [
+            {
+              "type": "regex_char", 
+              "start_position": 19, 
+              "match": "s", 
+              "end_position": 20
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 20, 
+              "match": "o", 
+              "end_position": 21
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 21, 
+              "match": "m", 
+              "end_position": 22
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 22, 
+              "match": "e", 
+              "end_position": 23
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 23, 
+              "match": "p", 
+              "end_position": 24
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 24, 
+              "match": "a", 
+              "end_position": 25
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 25, 
+              "match": "g", 
+              "end_position": 26
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 26, 
+              "match": "e", 
+              "end_position": 27
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 27, 
+              "match": "#", 
+              "end_position": 28
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 28, 
+              "match": "h", 
+              "end_position": 29
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 29, 
+              "match": "a", 
+              "end_position": 30
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 30, 
+              "match": "s", 
+              "end_position": 31
+            }, 
+            {
+              "type": "regex_char", 
+              "start_position": 31, 
+              "match": "h", 
+              "end_position": 32
+            }
+          ], 
+          "match": "somepage#hash", 
+          "end_position": 32
+        }
+      ], 
+      "match": "/somepage#hash", 
+      "end_position": 32
+    }, 
+    {
+      "type": "optional", 
+      "start_position": 32, 
+      "children": null, 
+      "match": null, 
+      "end_position": 32
+    }, 
+    {
+      "type": "optional", 
+      "start_position": 32, 
+      "children": null, 
+      "match": null, 
+      "end_position": 32
+    }, 
+    {
+      "type": "end_of_file", 
+      "start_position": 32, 
+      "children": [], 
+      "match": null, 
+      "end_position": 32
+    }
+  ], 
+  "match": "http://iponweb.net/somepage#hash", 
+  "end_position": 32
+}

@@ -1,0 +1,14 @@
+GRAMMAR url
+
+test -> "asda";
+lowercase -> [a-z];
+uppercase -> [A-Z];
+numbers -> [0-9];
+combo -> [a-zA-Z0-9_\\]];
+
+not_lowercase -> [^a-z];
+not_uppercase -> [^A-Z];
+not_numbers -> [^0-9];
+not_combo -> [^a-zA-Z0-9_];
+
+dot -> .;

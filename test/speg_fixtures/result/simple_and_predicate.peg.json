@@ -1,0 +1,14 @@
+{
+  "type": "and_predicate", 
+  "start_position": 0, 
+  "children": [
+    {
+      "type": "string", 
+      "start_position": 0, 
+      "match": "A", 
+      "end_position": 1
+    }
+  ], 
+  "match": null, 
+  "end_position": 0
+}

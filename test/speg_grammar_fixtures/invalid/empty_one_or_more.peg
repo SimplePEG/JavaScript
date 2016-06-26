@@ -1,0 +1,7 @@
+GRAMMAR url
+
+test -> "begin"+ [0-9] "end";
+other -> "A" / +;
+other_next -> "A" / + / "sdasda";
+
+next_seq -> + test+;

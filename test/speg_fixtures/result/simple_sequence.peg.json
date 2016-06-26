@@ -1,0 +1,26 @@
+{
+  "type": "sequence", 
+  "start_position": 0, 
+  "children": [
+    {
+      "type": "string", 
+      "start_position": 0, 
+      "match": "A", 
+      "end_position": 1
+    }, 
+    {
+      "type": "string", 
+      "start_position": 1, 
+      "match": "B", 
+      "end_position": 2
+    }, 
+    {
+      "type": "string", 
+      "start_position": 2, 
+      "match": "C", 
+      "end_position": 3
+    }
+  ], 
+  "match": "ABC", 
+  "end_position": 3
+}

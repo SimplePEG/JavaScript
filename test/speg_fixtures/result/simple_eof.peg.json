@@ -1,0 +1,21 @@
+{
+  "type": "sequence", 
+  "start_position": 0, 
+  "children": [
+    {
+      "type": "string", 
+      "start_position": 0, 
+      "match": "A", 
+      "end_position": 1
+    }, 
+    {
+      "type": "end_of_file", 
+      "start_position": 1, 
+      "children": [], 
+      "match": null, 
+      "end_position": 1
+    }
+  ], 
+  "match": "A", 
+  "end_position": 1
+}

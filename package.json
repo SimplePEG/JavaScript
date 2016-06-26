@@ -1,0 +1,35 @@
+{
+  "name": "simplepeg",
+  "version": "1.0.0",
+  "description": "JavaScript version ( Browser and Node.js ) of SimplePEG",
+  "main": "src/speg.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test",
+    "prebuild": "npm test",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimplePEG/JavaScript.git"
+  },
+  "keywords": [
+    "PEG",
+    "parser",
+    "grammar"
+  ],
+  "author": "Oleksii Okhrymenko (aka aiboy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SimplePEG/JavaScript/issues"
+  },
+  "homepage": "https://github.com/SimplePEG/JavaScript#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "recursive-readdir-sync": "^1.0.6",
+    "webpack": "^1.13.1"
+  }
+}

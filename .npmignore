@@ -1,3 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Node template
 # Logs
 logs
 *.log
@@ -13,6 +15,9 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
 
 # node-waf configuration
 .lock-wscript
@@ -30,5 +35,3 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# IDE
-.idea/
