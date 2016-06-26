@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test": "mocha test",
     "prebuild": "npm test",
     "build": "webpack --config webpack.config.js"
@@ -28,7 +29,10 @@
   "homepage": "https://github.com/SimplePEG/JavaScript#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
+    "istanbul": "^0.4.4",
     "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0",
     "recursive-readdir-sync": "^1.0.6",
     "webpack": "^1.13.1"
   }
