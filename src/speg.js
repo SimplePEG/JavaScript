@@ -1,6 +1,7 @@
 var SPEG_actions_visitor = require('./speg_visitor').SPEG_actions_visitor;
 var SPEG_parser = require('./speg_parser');
 var rd = require('./rd_parser');
+var ex = require('./exceptions');
 
 function SPEG() {
     this.parser = new SPEG_parser();
@@ -14,7 +15,7 @@ SPEG.prototype.parse_grammar = function(grammar) {
     if (speg_ast) {
         this.speg_parser = this.visitor.visit(speg_ast);
     } else {
-        throw Error('Failed to parse grammar: \n\n' + this.parser.get_last_error());
+        throw new ex.GrammarParseError('Failed to parse grammar: \n\n' + this.parser.get_last_error());
     }
 };
 
@@ -28,7 +29,7 @@ SPEG.prototype.parse_text = function(text) {
         if (ast) {
             return ast;
         } else {
-            throw Error('Failed to parse text: \n\n' + rd.get_last_error(state))
+            throw new ex.TextParseError('Failed to parse text: \n\n' + rd.get_last_error(state))
         }
     } else {
         throw Error('You need grammar to parse text. Call parseGrammar first');
@@ -47,10 +48,10 @@ SPEG.prototype.parse = function(grammar, text) {
         if (ast) {
             return ast;
         } else {
-            throw Error('Failed to parse text: \n\n' + rd.get_last_error(state))
+            throw new ex.TextParseError('Failed to parse text: \n\n' + rd.get_last_error(state))
         }
     } else {
-        throw Error('Failed to parse grammar: \n\n' + this.parser.get_last_error())
+        throw new ex.GrammarParseError('Failed to parse grammar: \n\n' + this.parser.get_last_error())
     }
 };
 
