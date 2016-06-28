@@ -61,7 +61,7 @@ SPEG_actions.prototype.noop = function(node) {
 };
 
 SPEG_actions.prototype.peg = function(node) {
-    return node.children[2];
+    return node.children[3];
 };
 
 SPEG_actions.prototype.parsing_body = function(node) {
