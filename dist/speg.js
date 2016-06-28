@@ -57,6 +57,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var SPEG_actions_visitor = __webpack_require__(1).SPEG_actions_visitor;
 	var SPEG_parser = __webpack_require__(2);
 	var rd = __webpack_require__(3);
+	var ex = __webpack_require__(4);
 
 	function SPEG() {
 	    this.parser = new SPEG_parser();
@@ -70,7 +71,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (speg_ast) {
 	        this.speg_parser = this.visitor.visit(speg_ast);
 	    } else {
-	        throw Error('Failed to parse grammar: \n\n' + this.parser.get_last_error());
+	        throw new ex.GrammarParseError('Failed to parse grammar: \n\n' + this.parser.get_last_error());
 	    }
 	};
 
@@ -84,7 +85,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (ast) {
 	            return ast;
 	        } else {
-	            throw Error('Failed to parse text: \n\n' + rd.get_last_error(state))
+	            throw new ex.TextParseError('Failed to parse text: \n\n' + rd.get_last_error(state))
 	        }
 	    } else {
 	        throw Error('You need grammar to parse text. Call parseGrammar first');
@@ -103,10 +104,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (ast) {
 	            return ast;
 	        } else {
-	            throw Error('Failed to parse text: \n\n' + rd.get_last_error(state))
+	            throw new ex.TextParseError('Failed to parse text: \n\n' + rd.get_last_error(state))
 	        }
 	    } else {
-	        throw Error('Failed to parse grammar: \n\n' + this.parser.get_last_error())
+	        throw new ex.GrammarParseError('Failed to parse grammar: \n\n' + this.parser.get_last_error())
 	    }
 	};
 
@@ -117,7 +118,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	SPEG_actions.prototype.peg = function(node) {
-	    return node.children[2];
+	    return node.children[3];
 	};
 
 	SPEG_actions.prototype.parsing_body = function(node) {
@@ -277,6 +278,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function peg() {
 	    return rd.action('peg', rd.sequence([
+	        rd.zero_or_more(_()),
 	        parsing_header(),
 	        rd.one_or_more(_()),
 	        parsing_body(),
@@ -832,6 +834,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	    action: action,
 	    call_rule_by_name: call_rule_by_name
 	};
+
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	function GrammarParseError() {
+	    var temp = Error.apply(this, arguments);
+	    temp.name = this.name = 'GrammarParseError';
+	    this.stack = temp.stack;
+	    this.message = temp.message;
+	}
+	GrammarParseError.prototype = Object.create(Error.prototype, {
+	    constructor: {
+	        value: GrammarParseError,
+	        writable: true,
+	        configurable: true
+	    }
+	});
+
+	function TextParseError() {
+	    var temp = Error.apply(this, arguments);
+	    temp.name = this.name = 'TextParseError';
+	    this.stack = temp.stack;
+	    this.message = temp.message;
+	}
+	TextParseError.prototype = Object.create(Error.prototype, {
+	    constructor: {
+	        value: TextParseError,
+	        writable: true,
+	        configurable: true
+	    }
+	});
+
+
+	module.exports = {
+		GrammarParseError: GrammarParseError,
+		TextParseError: TextParseError
+	}
 
 
 /***/ }
