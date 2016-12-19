@@ -1,0 +1,13 @@
+GRAMMAR Math_Expression_Grammar
+
+Math -> Expression EOF;
+
+Expression -> Term (_ ("+" / "-") _ Term)*;
+
+Term -> Factor (_ ("*" / "/") _ Factor)*;
+
+Factor -> ("(" _ Expression _ ")") / Integer;
+
+Integer -> [0-9]+;
+
+_ -> [ \t\n\r]*;

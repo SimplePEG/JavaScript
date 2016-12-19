@@ -1,0 +1,7 @@
+GRAMMAR numbers_at_start
+
+a -> 1b b2 b3 b999;
+1b -> "test";
+b2 -> "test";
+b3 -> "test";
+b999 -> "test";

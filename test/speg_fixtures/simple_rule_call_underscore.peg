@@ -1,0 +1,4 @@
+GRAMMAR test
+
+a -> _;
+_ -> "A";

@@ -40,8 +40,8 @@ function parsing_rule() {
 
 function parsing_rule_name() {
     return rd.action('noop', rd.sequence([
-        rd.regex_char('[a-zA-Z]'),
-        rd.zero_or_more(rd.regex_char('[a-zA-Z_]'))
+        rd.regex_char('[a-zA-Z_]'),
+        rd.zero_or_more(rd.regex_char('[a-zA-Z0-9_]'))
     ]));
 }
 

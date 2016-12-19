@@ -1,0 +1,300 @@
+{
+    "children": [
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "end_position": 1,
+                                            "match": "2",
+                                            "start_position": 0,
+                                            "type": "regex_char"
+                                        }
+                                    ],
+                                    "end_position": 1,
+                                    "match": "2",
+                                    "start_position": 0,
+                                    "type": "one_or_more"
+                                }
+                            ],
+                            "end_position": 1,
+                            "match": "2",
+                            "start_position": 0,
+                            "type": "ordered_choice"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "children": [
+                                                {
+                                                    "end_position": 2,
+                                                    "match": " ",
+                                                    "start_position": 1,
+                                                    "type": "regex_char"
+                                                }
+                                            ],
+                                            "end_position": 2,
+                                            "match": " ",
+                                            "start_position": 1,
+                                            "type": "zero_or_more"
+                                        },
+                                        {
+                                            "children": [
+                                                {
+                                                    "end_position": 3,
+                                                    "match": "*",
+                                                    "start_position": 2,
+                                                    "type": "string"
+                                                }
+                                            ],
+                                            "end_position": 3,
+                                            "match": "*",
+                                            "start_position": 2,
+                                            "type": "ordered_choice"
+                                        },
+                                        {
+                                            "children": [
+                                                {
+                                                    "end_position": 4,
+                                                    "match": " ",
+                                                    "start_position": 3,
+                                                    "type": "regex_char"
+                                                }
+                                            ],
+                                            "end_position": 4,
+                                            "match": " ",
+                                            "start_position": 3,
+                                            "type": "zero_or_more"
+                                        },
+                                        {
+                                            "children": [
+                                                {
+                                                    "children": [
+                                                        {
+                                                            "end_position": 5,
+                                                            "match": "(",
+                                                            "start_position": 4,
+                                                            "type": "string"
+                                                        },
+                                                        {
+                                                            "children": [],
+                                                            "end_position": 5,
+                                                            "match": null,
+                                                            "start_position": 5,
+                                                            "type": "zero_or_more"
+                                                        },
+                                                        {
+                                                            "children": [
+                                                                {
+                                                                    "children": [
+                                                                        {
+                                                                            "children": [
+                                                                                {
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "end_position": 6,
+                                                                                            "match": "3",
+                                                                                            "start_position": 5,
+                                                                                            "type": "regex_char"
+                                                                                        }
+                                                                                    ],
+                                                                                    "end_position": 6,
+                                                                                    "match": "3",
+                                                                                    "start_position": 5,
+                                                                                    "type": "one_or_more"
+                                                                                }
+                                                                            ],
+                                                                            "end_position": 6,
+                                                                            "match": "3",
+                                                                            "start_position": 5,
+                                                                            "type": "ordered_choice"
+                                                                        },
+                                                                        {
+                                                                            "children": [],
+                                                                            "end_position": 6,
+                                                                            "match": null,
+                                                                            "start_position": 6,
+                                                                            "type": "zero_or_more"
+                                                                        }
+                                                                    ],
+                                                                    "end_position": 6,
+                                                                    "match": "3",
+                                                                    "start_position": 5,
+                                                                    "type": "sequence"
+                                                                },
+                                                                {
+                                                                    "children": [
+                                                                        {
+                                                                            "children": [
+                                                                                {
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "end_position": 7,
+                                                                                            "match": " ",
+                                                                                            "start_position": 6,
+                                                                                            "type": "regex_char"
+                                                                                        }
+                                                                                    ],
+                                                                                    "end_position": 7,
+                                                                                    "match": " ",
+                                                                                    "start_position": 6,
+                                                                                    "type": "zero_or_more"
+                                                                                },
+                                                                                {
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "end_position": 8,
+                                                                                            "match": "+",
+                                                                                            "start_position": 7,
+                                                                                            "type": "string"
+                                                                                        }
+                                                                                    ],
+                                                                                    "end_position": 8,
+                                                                                    "match": "+",
+                                                                                    "start_position": 7,
+                                                                                    "type": "ordered_choice"
+                                                                                },
+                                                                                {
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "end_position": 9,
+                                                                                            "match": " ",
+                                                                                            "start_position": 8,
+                                                                                            "type": "regex_char"
+                                                                                        }
+                                                                                    ],
+                                                                                    "end_position": 9,
+                                                                                    "match": " ",
+                                                                                    "start_position": 8,
+                                                                                    "type": "zero_or_more"
+                                                                                },
+                                                                                {
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "end_position": 10,
+                                                                                                            "match": "4",
+                                                                                                            "start_position": 9,
+                                                                                                            "type": "regex_char"
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "end_position": 10,
+                                                                                                    "match": "4",
+                                                                                                    "start_position": 9,
+                                                                                                    "type": "one_or_more"
+                                                                                                }
+                                                                                            ],
+                                                                                            "end_position": 10,
+                                                                                            "match": "4",
+                                                                                            "start_position": 9,
+                                                                                            "type": "ordered_choice"
+                                                                                        },
+                                                                                        {
+                                                                                            "children": [],
+                                                                                            "end_position": 10,
+                                                                                            "match": null,
+                                                                                            "start_position": 10,
+                                                                                            "type": "zero_or_more"
+                                                                                        }
+                                                                                    ],
+                                                                                    "end_position": 10,
+                                                                                    "match": "4",
+                                                                                    "start_position": 9,
+                                                                                    "type": "sequence"
+                                                                                }
+                                                                            ],
+                                                                            "end_position": 10,
+                                                                            "match": " + 4",
+                                                                            "start_position": 6,
+                                                                            "type": "sequence"
+                                                                        }
+                                                                    ],
+                                                                    "end_position": 10,
+                                                                    "match": " + 4",
+                                                                    "start_position": 6,
+                                                                    "type": "zero_or_more"
+                                                                }
+                                                            ],
+                                                            "end_position": 10,
+                                                            "match": "3 + 4",
+                                                            "start_position": 5,
+                                                            "type": "sequence"
+                                                        },
+                                                        {
+                                                            "children": [],
+                                                            "end_position": 10,
+                                                            "match": null,
+                                                            "start_position": 10,
+                                                            "type": "zero_or_more"
+                                                        },
+                                                        {
+                                                            "end_position": 11,
+                                                            "match": ")",
+                                                            "start_position": 10,
+                                                            "type": "string"
+                                                        }
+                                                    ],
+                                                    "end_position": 11,
+                                                    "match": "(3 + 4)",
+                                                    "start_position": 4,
+                                                    "type": "sequence"
+                                                }
+                                            ],
+                                            "end_position": 11,
+                                            "match": "(3 + 4)",
+                                            "start_position": 4,
+                                            "type": "ordered_choice"
+                                        }
+                                    ],
+                                    "end_position": 11,
+                                    "match": " * (3 + 4)",
+                                    "start_position": 1,
+                                    "type": "sequence"
+                                }
+                            ],
+                            "end_position": 11,
+                            "match": " * (3 + 4)",
+                            "start_position": 1,
+                            "type": "zero_or_more"
+                        }
+                    ],
+                    "end_position": 11,
+                    "match": "2 * (3 + 4)",
+                    "start_position": 0,
+                    "type": "sequence"
+                },
+                {
+                    "children": [],
+                    "end_position": 11,
+                    "match": null,
+                    "start_position": 11,
+                    "type": "zero_or_more"
+                }
+            ],
+            "end_position": 11,
+            "match": "2 * (3 + 4)",
+            "start_position": 0,
+            "type": "sequence"
+        },
+        {
+            "children": [],
+            "end_position": 11,
+            "match": null,
+            "start_position": 11,
+            "type": "end_of_file"
+        }
+    ],
+    "end_position": 11,
+    "match": "2 * (3 + 4)",
+    "start_position": 0,
+    "type": "sequence"
+}

@@ -1,0 +1,4 @@
+GRAMMAR url
+
+a -> _;
+_ -> "test";

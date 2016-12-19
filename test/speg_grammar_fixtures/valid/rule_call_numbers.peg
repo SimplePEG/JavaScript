@@ -1,0 +1,7 @@
+GRAMMAR url
+
+a -> b1 b2 b3 b999;
+b1 -> "test";
+b2 -> "test";
+b3 -> "test";
+b999 -> "test";

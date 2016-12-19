@@ -1,0 +1,3 @@
+GRAMMAR lower_case_underscore
+
+test -> "test";
