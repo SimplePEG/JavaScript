@@ -32,3 +32,4 @@ jspm_packages
 
 # IDE
 .idea/
+.vscode/
