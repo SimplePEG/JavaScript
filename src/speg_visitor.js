@@ -1,3 +1,5 @@
+var rd = require('./rd_parser');
+
 function PEGJS_visitor(){}
 
 PEGJS_visitor.visit = function(node) {
