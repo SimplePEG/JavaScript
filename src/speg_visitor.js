@@ -61,7 +61,23 @@ SPEG_actions.prototype.parsing_ordered_choice = function(node) {
 };
 
 SPEG_actions.prototype.parsing_sub_expression = function(node) {
-    return node.children[0];
+    return function() {
+        var result = node.children[1].children[0].apply(this, arguments);
+        if (result) {
+            var tags = node.children[0].children.map(function(tag_node){
+                return tag_node.children[0].match;
+            });
+            if (tags.length > 0) {
+                if (result.tags) {
+                    result.tags = tags.concat(result.tags);
+                } else {
+                    result.tags = tags;
+                }
+            }
+        }
+        return result;
+    }
+    return node.children[1].children[0];
 };
 
 SPEG_actions.prototype.parsing_group = function(node) {

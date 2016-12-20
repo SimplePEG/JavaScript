@@ -1,0 +1,5 @@
+GRAMMAR test
+
+a -> tag1:tag2:b ctag:c;
+b -> c;
+c -> last:"A";

@@ -14,7 +14,7 @@ describe('speg_parser - fixtures - ', function() {
 
                 if (!ast) {
                     console.log(JSON.stringify(speg.getLastExpectations()));
-                    console.log(speg.getLastError());
+                    console.log(speg.get_last_error());
                 }
                 ast.should.be.an('object');
             }

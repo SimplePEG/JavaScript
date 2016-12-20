@@ -1,0 +1,29 @@
+{
+  "type": "sequence", 
+  "start_position": 0, 
+  "match": "AA",
+  "children": [
+      {
+        "end_position": 1,
+        "match": "A",
+        "start_position": 0,
+        "tags": [
+          "tag1",
+          "tag2",
+          "last"
+        ],
+        "type": "string"
+      },
+      {
+        "end_position": 2,
+        "match": "A",
+        "start_position": 1,
+        "tags": [
+          "ctag",
+          "last"
+        ],
+        "type": "string"
+      }
+  ],
+  "end_position": 2
+}

@@ -82,14 +82,27 @@ function parsing_ordered_choice() {
 }
 
 function parsing_sub_expression() {
-    return rd.action('parsing_sub_expression', rd.ordered_choice([
-        parsing_not_predicate(),
-        parsing_and_predicate(),
-        parsing_optional(),
-        parsing_one_or_more(),
-        parsing_zero_or_more(),
-        parsing_group(),
-        parsing_atomic_expression()
+    return rd.action('parsing_sub_expression', rd.sequence([
+        rd.zero_or_more(rd.sequence([
+            tag(),
+            rd.string(':')
+        ])),
+        rd.ordered_choice([
+            parsing_not_predicate(),
+            parsing_and_predicate(),
+            parsing_optional(),
+            parsing_one_or_more(),
+            parsing_zero_or_more(),
+            parsing_group(),
+            parsing_atomic_expression()
+        ])
+    ]));
+}
+
+function tag() {
+    return rd.action('noop', rd.sequence([
+        rd.regex_char('[a-zA-Z_]'),
+        rd.zero_or_more(rd.regex_char('[a-zA-Z_0-9]'))
     ]));
 }
 
