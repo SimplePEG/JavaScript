@@ -388,7 +388,13 @@ describe('rd - peg methods - ', function() {
         // assert
         should.exist(ast);
         // we need to assert without children
-        state.lastExpectations.should.deep.equal([]);
+        state.lastExpectations.should.deep.equal([
+            {
+                "position": 2,
+                "rule": "[0-9]",
+                "type": "regex_char"
+            }
+        ]);
         ast.should.deep.equal({
             match: string_to_match,
             children: children_to_match,
@@ -423,6 +429,38 @@ describe('rd - peg methods - ', function() {
             type: "zero_or_more"
         });
     });
+        it('should correctly handle wrong text for second "zero_or_more" method for string', function() {
+        // arrange
+        var text = '0f';
+        var string_to_match = null;
+        var children_to_match = [];
+        var parsing_expression = rd.regex_char('[0-9]');
+        var start_position = 0;
+        var end_position = 0;
+        // act
+        var parser = rd.sequence([
+            rd.zero_or_more(parsing_expression),
+            rd.end_of_file()
+        ]);
+        var state = {
+            text: text,
+            position: start_position
+        };
+        var ast = parser(state);
+        // assert
+        should.exist(ast);
+        ast.should.be.a('boolean');
+        // we need to assert without children
+        state.lastExpectations.should.deep.equal([{
+            rule: '[0-9]',
+            position: 1,
+            type: 'regex_char'
+        },{
+            rule: 'EOF',
+            position: 1,
+            type: 'end_of_file'
+        }]);
+    });
     it('should implement "one_or_more" method for string', function() {
         // arrange
         var text = '22';
@@ -454,7 +492,13 @@ describe('rd - peg methods - ', function() {
         // assert
         should.exist(ast);
         // we need to assert without children
-        state.lastExpectations.should.deep.equal([]);
+        state.lastExpectations.should.deep.equal([
+            {
+                "position": 2,
+                "rule": "[0-9]",
+                "type": "regex_char"
+            }
+        ]);
         ast.should.deep.equal({
             match: string_to_match,
             children: children_to_match,
@@ -486,6 +530,38 @@ describe('rd - peg methods - ', function() {
             rule: '[0-9]',
             position: 0,
             type: 'regex_char'
+        }]);
+    });
+    it('should correctly handle wrong text for second "one_or_more" method for string', function() {
+        // arrange
+        var text = '0f';
+        var string_to_match = null;
+        var children_to_match = [];
+        var parsing_expression = rd.regex_char('[0-9]');
+        var start_position = 0;
+        var end_position = 0;
+        // act
+        var parser = rd.sequence([
+            rd.one_or_more(parsing_expression),
+            rd.end_of_file()
+        ]);
+        var state = {
+            text: text,
+            position: start_position
+        };
+        var ast = parser(state);
+        // assert
+        should.exist(ast);
+        ast.should.be.a('boolean');
+        // we need to assert without children
+        state.lastExpectations.should.deep.equal([{
+            rule: '[0-9]',
+            position: 1,
+            type: 'regex_char'
+        },{
+            rule: 'EOF',
+            position: 1,
+            type: 'end_of_file'
         }]);
     });
     it('should implement "optional" method for string', function() {

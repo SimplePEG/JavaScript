@@ -77,7 +77,6 @@ SPEG_actions.prototype.parsing_sub_expression = function(node) {
         }
         return result;
     }
-    return node.children[1].children[0];
 };
 
 SPEG_actions.prototype.parsing_group = function(node) {
@@ -120,7 +119,7 @@ SPEG_actions.prototype.parsing_rule_call = function(node) {
     return rd.call_rule_by_name(node.match);
 };
 
-SPEG_actions.prototype.parsing_end_of_file = function(node) {
+SPEG_actions.prototype.parsing_end_of_file = function() {
     return rd.end_of_file();
 };
 

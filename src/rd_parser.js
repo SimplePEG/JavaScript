@@ -150,7 +150,6 @@ function zero_or_more(parser) {
                 state.position = state_position;
             }
         }
-        state.lastExpectations = [];
         var match = asts.reduce(function(r, n){ return r + (n.match || '') }, '');
         return {
             type: 'zero_or_more',
@@ -177,7 +176,6 @@ function one_or_more(parser) {
             }
         }
         if (asts.length > 0) {
-            state.lastExpectations = [];
             var match = asts.reduce(function(r, n){ return r + (n.match || '') }, '');
             return {
                 type: 'one_or_more',
@@ -249,7 +247,7 @@ function not_predicate(parser) {
                 children: [ast],
                 position: state.position
             }];
-            return false;
+             return false;
         } else {
             state.lastExpectations = [];
             return {
@@ -274,11 +272,11 @@ function end_of_file() {
                 end_position: state.position
             }
         } else {
-            state.lastExpectations = [{
+            state.lastExpectations.push({
                 type: 'end_of_file',
                 rule: 'EOF',
                 position: state.position
-            }]
+            });
             return false;
         }
     }
@@ -292,7 +290,7 @@ function rec(callback) {
 
 function action(name, func) {
     return function(){
-        ast = func.apply(this, arguments);
+        var ast = func.apply(this, arguments);
         if (ast) {
             ast.action = name;
         }
@@ -302,11 +300,11 @@ function action(name, func) {
 
 function call_rule_by_name(name) {
     return function(state){
-        rule = state.rules.filter(function(rule){
-            return rule.name === name;
+        var rule = state.rules.filter(function(r){
+            return r.name === name;
         })[0];
-        ast = rule.parser(state);
-        return ast
+        var ast = rule.parser(state);
+        return ast;
     }
 }
 
