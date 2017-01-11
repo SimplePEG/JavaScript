@@ -7,6 +7,7 @@ function SPEG() {
     this.parser = new SPEG_parser();
     this.visitor = new SPEG_actions_visitor();
     this.speg_parser = null;
+    this.state = null;
 }
 
 SPEG.prototype.parse_grammar = function(grammar) {
@@ -24,12 +25,12 @@ SPEG.prototype.parse_text = function(text) {
         var rules = this.speg_parser.children;
         var first_rule = rules[0];
         var first_rule_parser = first_rule.parser;
-        var state = { text: text, position: 0, rules: rules };
-        var ast = first_rule_parser(state);
+        this.state = { text: text, position: 0, rules: rules };
+        var ast = first_rule_parser(this.state);
         if (ast) {
             return ast;
         } else {
-            throw new ex.TextParseError('Failed to parse text: \n\n' + rd.get_last_error(state))
+            throw new ex.TextParseError('Failed to parse text: \n\n' + rd.get_last_error(this.state))
         }
     } else {
         throw Error('You need grammar to parse text. Call parseGrammar first');
@@ -43,12 +44,12 @@ SPEG.prototype.parse = function(grammar, text) {
         var rules = generated_parser.children;
         var first_rule = rules[0];
         var first_rule_parser = first_rule.parser;
-        var state = { text: text, position: 0, rules: rules };
-        var ast = first_rule_parser(state);
+        this.state = { text: text, position: 0, rules: rules };
+        var ast = first_rule_parser(this.state);
         if (ast) {
             return ast;
         } else {
-            throw new ex.TextParseError('Failed to parse text: \n\n' + rd.get_last_error(state))
+            throw new ex.TextParseError('Failed to parse text: \n\n' + rd.get_last_error(this.state))
         }
     } else {
         throw new ex.GrammarParseError('Failed to parse grammar: \n\n' + this.parser.get_last_error())
