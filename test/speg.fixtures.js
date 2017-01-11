@@ -6,7 +6,7 @@ var valid_files = recursiveReadSync('./test/speg_fixtures');
 
 describe('speg - fixtures - ', function() {
     valid_files = valid_files.filter(function(filename) {
-        return filename.endsWith('.peg');
+        return /\.peg$/.test(filename);
     })
     for (var i = 0, len = valid_files.length; i < len; i++) {
         it('should parse - ' + valid_files[i], (function (filename) {
