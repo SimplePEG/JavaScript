@@ -61,12 +61,12 @@ SPEG_actions.prototype.parsing_ordered_choice = function(node) {
 };
 
 SPEG_actions.prototype.parsing_sub_expression = function(node) {
-    return function() {
-        var result = node.children[1].children[0].apply(this, arguments);
+    return function(state) {
+        var result = node.children[1].children[0].call(this, state);
+        var tags = node.children[0].children.map(function(tag_node){
+            return tag_node.children[0].match;
+        });
         if (result) {
-            var tags = node.children[0].children.map(function(tag_node){
-                return tag_node.children[0].match;
-            });
             if (tags.length > 0) {
                 if (result.tags) {
                     result.tags = tags.concat(result.tags);
@@ -74,6 +74,11 @@ SPEG_actions.prototype.parsing_sub_expression = function(node) {
                     result.tags = tags;
                 }
             }
+        } else {
+            if (!state.failedTags) {
+                state.failedTags = [];
+            }
+            state.failedTags.push.apply(state.failedTags, tags);
         }
         return result;
     }
