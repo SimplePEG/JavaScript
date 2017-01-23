@@ -1,5 +1,6 @@
 {
-  "type": "sequence", 
+  "type": "sequence",
+  "rule": "a",
   "start_position": 0, 
   "children": [
     {

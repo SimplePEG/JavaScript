@@ -1,10 +1,12 @@
 {
-  "type": "sequence", 
-  "start_position": 0, 
+  "type": "sequence",
+  "rule": "a",
+  "start_position": 0,
   "match": "AA",
   "children": [
       {
         "end_position": 1,
+        "rule": "b",
         "match": "A",
         "start_position": 0,
         "tags": [
@@ -17,6 +19,7 @@
       {
         "end_position": 2,
         "match": "A",
+        "rule": "c",        
         "start_position": 1,
         "tags": [
           "ctag",

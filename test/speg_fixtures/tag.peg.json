@@ -1,7 +1,8 @@
 {
   "type": "string", 
   "start_position": 0, 
-  "match": "A", 
+  "match": "A",
+  "rule": "a",
   "tags": [
     "tag"
   ],

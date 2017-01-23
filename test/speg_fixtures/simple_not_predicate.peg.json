@@ -1,7 +1,8 @@
 {
   "type": "not_predicate", 
   "start_position": 0, 
-  "children": [], 
+  "children": [],
+  "rule": "a",
   "match": null, 
   "end_position": 0
 }

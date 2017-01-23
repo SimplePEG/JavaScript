@@ -36,7 +36,13 @@ SPEG_actions.prototype.parsing_rule = function(node) {
     var rule = node.children[4];
     return {
         name: node.children[0].match,
-        parser: rule
+        parser: function(state) {
+            var ast = rule(state);
+            if (ast) {
+                ast.rule = node.children[0].match;
+            }
+            return ast;
+        }
     }
 };
 

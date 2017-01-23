@@ -8,7 +8,7 @@
       "children": [
         {
           "type": "string", 
-          "start_position": 0, 
+          "start_position": 0,
           "match": "http", 
           "end_position": 4
         }, 
@@ -21,6 +21,7 @@
         }
       ], 
       "match": "http", 
+      "rule": "scheme",
       "end_position": 4
     }, 
     {
@@ -32,14 +33,17 @@
     {
       "type": "sequence", 
       "start_position": 7, 
+      "rule": "host",
       "children": [
         {
           "type": "sequence", 
-          "start_position": 7, 
+          "start_position": 7,
+          "rule": "hostname",
           "children": [
             {
               "type": "one_or_more", 
-              "start_position": 7, 
+              "start_position": 7,
+              "rule": "segment",              
               "children": [
                 {
                   "type": "regex_char", 
@@ -102,7 +106,8 @@
                       "end_position": 15
                     }, 
                     {
-                      "type": "one_or_more", 
+                      "type": "one_or_more",
+                      "rule": "segment",
                       "start_position": 15, 
                       "children": [
                         {
@@ -123,7 +128,7 @@
                           "match": "t", 
                           "end_position": 18
                         }
-                      ], 
+                      ],
                       "match": "net", 
                       "end_position": 18
                     }
@@ -151,7 +156,8 @@
       "end_position": 18
     }, 
     {
-      "type": "sequence", 
+      "type": "sequence",
+      "rule": "pathname",
       "start_position": 18, 
       "children": [
         {
@@ -252,13 +258,14 @@
     }, 
     {
       "type": "optional", 
+      "rule": "search", 
       "start_position": 32, 
       "children": null, 
       "match": null, 
       "end_position": 32
     }, 
     {
-      "type": "optional", 
+      "type": "optional",
       "start_position": 32, 
       "children": null, 
       "match": null, 
@@ -272,6 +279,7 @@
       "end_position": 32
     }
   ], 
-  "match": "http://iponweb.net/somepage#hash", 
+  "match": "http://iponweb.net/somepage#hash",
+  "rule": "url",
   "end_position": 32
 }

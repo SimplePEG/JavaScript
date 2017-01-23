@@ -1,6 +1,7 @@
 {
   "type": "zero_or_more", 
-  "start_position": 0, 
+  "start_position": 0,
+  "rule": "a",
   "children": [
     {
       "type": "string", 

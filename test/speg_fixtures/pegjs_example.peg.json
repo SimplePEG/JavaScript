@@ -17,12 +17,14 @@
                                     ],
                                     "end_position": 1,
                                     "match": "2",
+                                    "rule": "Integer",
                                     "start_position": 0,
                                     "type": "one_or_more"
                                 }
                             ],
                             "end_position": 1,
                             "match": "2",
+                            "rule": "Factor",
                             "start_position": 0,
                             "type": "ordered_choice"
                         },
@@ -41,6 +43,7 @@
                                             ],
                                             "end_position": 2,
                                             "match": " ",
+                                            "rule": "_",                                            
                                             "start_position": 1,
                                             "type": "zero_or_more"
                                         },
@@ -69,6 +72,7 @@
                                             ],
                                             "end_position": 4,
                                             "match": " ",
+                                            "rule": "_",
                                             "start_position": 3,
                                             "type": "zero_or_more"
                                         },
@@ -86,6 +90,7 @@
                                                             "children": [],
                                                             "end_position": 5,
                                                             "match": null,
+                                                            "rule": "_",
                                                             "start_position": 5,
                                                             "type": "zero_or_more"
                                                         },
@@ -106,12 +111,14 @@
                                                                                     ],
                                                                                     "end_position": 6,
                                                                                     "match": "3",
+                                                                                    "rule": "Integer",
                                                                                     "start_position": 5,
                                                                                     "type": "one_or_more"
                                                                                 }
                                                                             ],
                                                                             "end_position": 6,
                                                                             "match": "3",
+                                                                            "rule": "Factor",
                                                                             "start_position": 5,
                                                                             "type": "ordered_choice"
                                                                         },
@@ -125,6 +132,7 @@
                                                                     ],
                                                                     "end_position": 6,
                                                                     "match": "3",
+                                                                    "rule": "Term",
                                                                     "start_position": 5,
                                                                     "type": "sequence"
                                                                 },
@@ -143,6 +151,7 @@
                                                                                     ],
                                                                                     "end_position": 7,
                                                                                     "match": " ",
+                                                                                    "rule": "_",
                                                                                     "start_position": 6,
                                                                                     "type": "zero_or_more"
                                                                                 },
@@ -171,6 +180,7 @@
                                                                                     ],
                                                                                     "end_position": 9,
                                                                                     "match": " ",
+                                                                                    "rule": "_",
                                                                                     "start_position": 8,
                                                                                     "type": "zero_or_more"
                                                                                 },
@@ -189,12 +199,14 @@
                                                                                                     ],
                                                                                                     "end_position": 10,
                                                                                                     "match": "4",
+                                                                                                    "rule": "Integer",
                                                                                                     "start_position": 9,
                                                                                                     "type": "one_or_more"
                                                                                                 }
                                                                                             ],
                                                                                             "end_position": 10,
                                                                                             "match": "4",
+                                                                                            "rule": "Factor",
                                                                                             "start_position": 9,
                                                                                             "type": "ordered_choice"
                                                                                         },
@@ -208,6 +220,7 @@
                                                                                     ],
                                                                                     "end_position": 10,
                                                                                     "match": "4",
+                                                                                    "rule": "Term",
                                                                                     "start_position": 9,
                                                                                     "type": "sequence"
                                                                                 }
@@ -225,6 +238,7 @@
                                                                 }
                                                             ],
                                                             "end_position": 10,
+                                                            "rule": "Expression",
                                                             "match": "3 + 4",
                                                             "start_position": 5,
                                                             "type": "sequence"
@@ -232,6 +246,7 @@
                                                         {
                                                             "children": [],
                                                             "end_position": 10,
+                                                            "rule": "_",
                                                             "match": null,
                                                             "start_position": 10,
                                                             "type": "zero_or_more"
@@ -250,6 +265,7 @@
                                                 }
                                             ],
                                             "end_position": 11,
+                                            "rule": "Factor",
                                             "match": "(3 + 4)",
                                             "start_position": 4,
                                             "type": "ordered_choice"
@@ -269,6 +285,7 @@
                     ],
                     "end_position": 11,
                     "match": "2 * (3 + 4)",
+                    "rule": "Term",
                     "start_position": 0,
                     "type": "sequence"
                 },
@@ -283,6 +300,7 @@
             "end_position": 11,
             "match": "2 * (3 + 4)",
             "start_position": 0,
+            "rule": "Expression",
             "type": "sequence"
         },
         {
@@ -294,6 +312,7 @@
         }
     ],
     "end_position": 11,
+    "rule": "Math",
     "match": "2 * (3 + 4)",
     "start_position": 0,
     "type": "sequence"

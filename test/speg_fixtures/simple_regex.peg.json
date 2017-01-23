@@ -1,6 +1,7 @@
 {
   "type": "regex_char", 
   "start_position": 0, 
-  "match": "7", 
+  "match": "7",
+  "rule": "a",
   "end_position": 1
 }

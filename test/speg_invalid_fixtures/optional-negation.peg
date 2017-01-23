@@ -1,0 +1,6 @@
+GRAMMAR optional_genation
+
+exp -> negation? term EOF;
+negation -> "NOT" _;
+term -> "test";
+_ -> [ ]+;

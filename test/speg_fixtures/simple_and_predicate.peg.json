@@ -1,6 +1,7 @@
 {
   "type": "and_predicate", 
-  "start_position": 0, 
+  "start_position": 0,
+  "rule": "a",
   "children": [
     {
       "type": "string", 

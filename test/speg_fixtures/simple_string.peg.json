@@ -1,5 +1,6 @@
 {
-  "type": "string", 
+  "type": "string",
+  "rule": "a",
   "start_position": 0, 
   "match": "A", 
   "end_position": 1
