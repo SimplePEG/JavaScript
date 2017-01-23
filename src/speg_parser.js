@@ -102,7 +102,7 @@ function parsing_sub_expression() {
 function tag() {
     return rd.action('noop', rd.sequence([
         rd.regex_char('[a-zA-Z_]'),
-        rd.zero_or_more(rd.regex_char('[a-zA-Z_0-9]'))
+        rd.zero_or_more(rd.regex_char('[a-zA-Z0-9_]'))
     ]));
 }
 

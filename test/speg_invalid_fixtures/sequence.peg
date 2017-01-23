@@ -1,0 +1,6 @@
+GRAMMAR sequence
+
+Test -> Expression EOF;
+Expression -> Term ("+" Term)*;
+Term -> Group / "1";
+Group -> "(" Expression ")";

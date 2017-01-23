@@ -38,7 +38,7 @@ describe('exceptions - ', function() {
                 } catch (e) {
                     expect(e.message).to.equal(
                         'Failed to parse grammar: ' + 
-                        '\n\nUnexpected "EOF" expected (; or [\\s])\n' + 
+                        '\n\nUnexpected "EOF" expected (: or [\\s] or ;)\n' + 
                         '1: GRAMMAR t a->b\n' + 
                         '-----------------^'
                     );
@@ -54,7 +54,7 @@ describe('exceptions - ', function() {
                 } catch (e) {
                     expect(e.message).to.equal(
                         'Failed to parse grammar: ' + 
-                        '\n\nUnexpected "EOF" expected (; or [\\s])\n' + 
+                        '\n\nUnexpected "EOF" expected (;)\n' + 
                         '1: GRAMMAR t a->b c\n' + 
                         '-------------------^'
                     );
@@ -70,7 +70,7 @@ describe('exceptions - ', function() {
                 } catch (e) {
                     expect(e.message).to.equal(
                         'Failed to parse grammar: ' + 
-                        '\n\nUnexpected "EOF" expected (; or [\\s])\n' + 
+                        '\n\nUnexpected "EOF" expected (/ or ;)\n' + 
                         '1: GRAMMAR t a->b/c\n' + 
                         '-------------------^'
                     );
@@ -86,7 +86,7 @@ describe('exceptions - ', function() {
                 } catch (e) {
                     expect(e.message).to.equal(
                         'Failed to parse grammar: ' + 
-                        '\n\nUnexpected "EOF" expected (; or [\\s] or EOF)\n' + 
+                        '\n\nUnexpected "EOF" expected (: or [\\s] or ;)\n' + 
                         '1: GRAMMAR t a->b;b->c\n' + 
                         '----------------------^'
                     );
@@ -102,7 +102,7 @@ describe('exceptions - ', function() {
                 } catch (e) {
                     expect(e.message).to.equal(
                         'Failed to parse grammar: ' + 
-                        '\n\nUnexpected "EOF" expected (; or [\\s] or EOF)\n' + 
+                        '\n\nUnexpected "EOF" expected (: or [\\s] or ;)\n' + 
                         '1: GRAMMAR t a->b;b->c;c->d\n' + 
                         '---------------------------^'
                     );

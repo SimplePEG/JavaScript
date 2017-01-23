@@ -6,6 +6,16 @@ function get_last_error(state) {
     var last_exp_position = state.lastExpectations.reduce(function(a, b){
         return Math.max(a, b.position);
     }, state.position);
+    var dedupedExpectations = state.lastExpectations.filter(function(expectation) {
+        return expectation.position === last_exp_position;
+    }).filter(function(expectation, index, array) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i].rule === expectation.rule && i !== index) {
+                return false;
+            }
+        }
+        return true;
+    });
 
     var last_position = 0;
     var line_of_error = '';
@@ -33,7 +43,7 @@ function get_last_error(state) {
         unexpected_char = state.text[last_exp_position];
     }
     var unexpected = 'Unexpected "' + unexpected_char + '"';
-    var expected_rules = state.lastExpectations.map(function(exp){ return exp.rule });
+    var expected_rules = dedupedExpectations.map(function(exp){ return exp.rule });
     var expected = ' expected (' + expected_rules.join(' or ') + ')';
     var pointer = (new Array(position_of_error + 3 + error_ln_length)).join('-') + '^';
     var extra = line_of_error + '\n' + pointer;
@@ -88,16 +98,20 @@ function regex_char(rule) {
 function sequence(parsers) {
     return function(state) {
         var asts = [];
+        var expectations = [];
         var start_position = state.position;
         for (var i = 0; i < parsers.length; i++) {
             var ast = parsers[i](state);
+            expectations = expectations.concat(state.lastExpectations);
             if (ast) {
                 asts.push(ast);
             } else {
+                state.lastExpectations = expectations;
                 return false;
             }
         }
         var match = asts.reduce(function(r, n){ return r + (n.match || '') }, '');
+        state.lastExpectations = expectations;
         return {
             type: 'sequence',
             match: match,
@@ -170,7 +184,7 @@ function one_or_more(parser) {
             var state_position = state.position;
             ast = parser(state);
             if (ast) {
-                asts.push(ast);
+                asts.push(ast); 
             } else {
                 state.position = state_position;
             }
@@ -197,6 +211,8 @@ function optional(parser) {
         var asts = [];
         if (ast) {
             asts.push(ast);
+        } else {
+            state.position = start_position;
         }
         var match = asts.reduce(function(r, n){ return r + (n.match || '') }, '');
         return {
@@ -247,7 +263,7 @@ function not_predicate(parser) {
                 children: [ast],
                 position: state.position
             }];
-             return false;
+            return false;
         } else {
             state.lastExpectations = [];
             return {
@@ -264,6 +280,7 @@ function not_predicate(parser) {
 function end_of_file() {
     return function(state) {
         if (state.text.length === state.position) {
+            state.lastExpectations = [];
             return {
                 type: 'end_of_file',
                 match: null,
@@ -272,11 +289,11 @@ function end_of_file() {
                 end_position: state.position
             }
         } else {
-            state.lastExpectations.push({
+            state.lastExpectations = [{
                 type: 'end_of_file',
                 rule: 'EOF',
                 position: state.position
-            });
+            }];
             return false;
         }
     }
