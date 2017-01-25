@@ -1,6 +1,6 @@
 {
   "name": "simplepeg",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "JavaScript version ( Browser and Node.js ) of SimplePEG",
   "main": "src/speg.js",
   "directories": {
