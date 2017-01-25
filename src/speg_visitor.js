@@ -34,12 +34,31 @@ SPEG_actions.prototype.parsing_body = function(node) {
 
 SPEG_actions.prototype.parsing_rule = function(node) {
     var rule = node.children[4];
+    var ruleName = node.children[0].match;
     return {
-        name: node.children[0].match,
+        name: ruleName,
         parser: function(state) {
+            var start = state.position;
             var ast = rule(state);
             if (ast) {
-                ast.rule = node.children[0].match;
+                ast.rule = ruleName;
+                if (!state.succesfullRules) {
+                    state.succesfullRules = [];
+                }
+                state.succesfullRules.push({
+                    rule: ast.rule,
+                    match: ast.match,
+                    start_position: ast.start_position,
+                    end_position: ast.end_position
+                });
+            } else {
+                if (!state.failedRules) {
+                    state.failedRules = [];
+                }
+                state.failedRules.push({
+                    rule: ruleName,
+                    start_position: start
+                });
             }
             return ast;
         }
