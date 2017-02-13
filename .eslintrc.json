@@ -180,7 +180,7 @@
         "no-shadow": "error",
         "no-shadow-restricted-names": "error",
         "no-spaced-func": "error",
-        "no-sync": "error",
+        "no-sync": "warn",
         "no-tabs": "off",
         "no-template-curly-in-string": "error",
         "no-ternary": "off",

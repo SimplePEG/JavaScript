@@ -1,0 +1,3 @@
+GRAMMAR test
+
+a -> "\"" "A";

@@ -1,0 +1,21 @@
+{
+  "type": "sequence",
+  "rule": "a",
+  "start_position": 0, 
+  "children": [
+    {
+      "type": "string", 
+      "start_position": 0, 
+      "match": "\"", 
+      "end_position": 1
+    }, 
+    {
+      "type": "string", 
+      "start_position": 1, 
+      "match": "A", 
+      "end_position": 2
+    }
+  ], 
+  "match": "\"A", 
+  "end_position": 2
+}

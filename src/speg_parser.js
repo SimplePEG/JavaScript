@@ -183,6 +183,7 @@ function parsing_string() {
     return rd.action('parsing_string', rd.sequence([
         rd.string('"'),
         rd.one_or_more(rd.ordered_choice([
+            rd.string('\\\\'),
             rd.string('\\"'),
             rd.regex_char('[^"]')
         ])),

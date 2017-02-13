@@ -320,6 +320,9 @@ function call_rule_by_name(name) {
         var rule = state.rules.filter(function(r){
             return r.name === name;
         })[0];
+        if (!rule) {
+            throw new Error('failed to find rule by name - ' + name);
+        }
         var ast = rule.parser(state);
         return ast;
     }

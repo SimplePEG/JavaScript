@@ -138,7 +138,10 @@ SPEG_actions.prototype.parsing_optional = function(node) {
 };
 
 SPEG_actions.prototype.parsing_string = function(node) {
-    return rd.string(node.children[1].match);
+    return rd.string(node.children[1].match
+        .replace(/\\\\/g, '\\')
+        .replace(/\\"/g, '"')
+    );
 };
 
 SPEG_actions.prototype.parsing_regex_char = function(node) {
