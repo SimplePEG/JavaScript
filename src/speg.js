@@ -1,4 +1,5 @@
 var SPEG_actions_visitor = require('./speg_visitor').SPEG_actions_visitor;
+var SPEG_module_visitor = require('./speg_module_visitor').SPEG_module_visitor;
 var SPEG_parser = require('./speg_parser');
 var rd = require('./rd_parser');
 var ex = require('./exceptions');
@@ -56,6 +57,19 @@ SPEG.prototype.parse = function(grammar, text) {
     }
 };
 
+SPEG.prototype.parse_module = function(grammar) {
+    this.module_visitor = new SPEG_module_visitor();
+    var speg_ast = this.parser.parse(grammar);
+    if (speg_ast) {
+        return this.module_visitor.visit(speg_ast);
+    } else {
+        throw new ex.GrammarParseError('Failed to parse grammar: \n\n' + this.parser.get_last_error());
+    }
+}
+
 module.exports = {
-    SPEG: SPEG
+    SPEG: SPEG,
+    rd: rd,
+    TextParseError: ex.TextParseError,
+    GrammarParseError: ex.GrammarParseError
 };

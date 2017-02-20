@@ -1,9 +1,10 @@
 var rd = require('./rd_parser');
 
-function SPEG_actions_visitor() {
+function SPEG_module_visitor() {
     this.actions = new SPEG_actions();
 }
-SPEG_actions_visitor.prototype.visit = function(node) {
+SPEG_module_visitor.prototype.visit = function(node) {
+    this.firstRule = null;
     if (node.children) {
         node.children = node.children.map(function(child){
             return this.visit(child);
@@ -22,26 +23,47 @@ SPEG_actions.prototype.noop = function(node) {
 };
 
 SPEG_actions.prototype.peg = function(node) {
-    return node.children[3];
+    var module_source = 
+        'var simplepeg = require(\'simplepeg\');\n' +
+        'var rd = simplepeg.rd;\n' +
+        'function SPEG() {\n' +
+        '    this.state = null;\n' +
+        '}\n' +
+        'SPEG.prototype.parse_text = function(text) {\n' +
+        '    this.state = { text: text, position: 0 };\n' +
+        '    var ast = ' + this.firstRule + '()(this.state);\n' +
+        '    if (ast) {\n' +
+        '        return ast;\n' +
+        '    } else {\n' +
+        '        throw new simplepeg.TextParseError(\'Failed to parse text: \\n\\n\' + rd.get_last_error(this.state))\n' +
+        '    }\n' +
+        '};\n' +
+        'module.exports = {\n' +
+        '    SPEG: SPEG\n' +
+        '};\n\n' + node.children[3].join('\n');
+    
+    return module_source;
 };
 
 SPEG_actions.prototype.parsing_body = function(node) {
     node.children = node.children.map(function(child){
         return child.children[0];
     });
-    return node;
+    return node.children;
 };
 
 SPEG_actions.prototype.parsing_rule = function(node) {
     var rule = node.children[4];
     var ruleName = node.children[0].match;
-    return '{\n' +
-        'name: ' + ruleName + ',\n' +
-        'parser: function(state) {\n' +
+    if (!this.firstRule) {
+        this.firstRule = ruleName;
+    }
+    return 'function ' + ruleName + '() {\n' +
+        'return function(state) {\n' +
             'var start = state.position;\n' +
-            'var ast = ' + rule + '(state);\n' +
+            'var ast = (' + rule + ')(state);\n' +
             'if (ast) {\n' +
-                'ast.rule = ' + ruleName + ';\n' +
+                'ast.rule = "' + ruleName + '";\n' +
                 'if (!state.succesfullRules) {\n' +
                     'state.succesfullRules = [];\n' +
                 '}\n' +
@@ -56,13 +78,13 @@ SPEG_actions.prototype.parsing_rule = function(node) {
                     'state.failedRules = [];\n' +
                 '}\n' +
                 'state.failedRules.push({\n' +
-                    'rule: ' + ruleName + ',\n' +
+                    'rule: "' + ruleName + '",\n' +
                     'start_position: start\n' +
                 '});\n' +
             '}\n' +
             'return ast;\n' +
         '}\n' +
-    '}'
+    '}';
 };
 
 SPEG_actions.prototype.parsing_expression = function(node) {
@@ -140,18 +162,15 @@ SPEG_actions.prototype.parsing_optional = function(node) {
 };
 
 SPEG_actions.prototype.parsing_string = function(node) {
-    return 'rd.string(' + node.children[1].match + ')';
-        //.replace(/\\\\/g, '\\')
-        //.replace(/\\"/g, '"')
-    //);
+    return 'rd.string("' + node.children[1].match + '")';
 };
 
 SPEG_actions.prototype.parsing_regex_char = function(node) {
-    return 'rd.regex_char(' + node.children[0].match + ')';
+    return 'rd.regex_char(/' + node.children[0].match + '/)';
 };
 
 SPEG_actions.prototype.parsing_rule_call = function(node) {
-    return 'rd.call_rule_by_name(' + node.match + ')';
+    return 'rd.rec(' + node.match + ')';
 };
 
 SPEG_actions.prototype.parsing_end_of_file = function() {
@@ -159,5 +178,5 @@ SPEG_actions.prototype.parsing_end_of_file = function() {
 };
 
 module.exports = {
-    SPEG_actions_visitor: SPEG_actions_visitor
+    SPEG_module_visitor: SPEG_module_visitor
 };
