@@ -6,4 +6,5 @@ node_js:
   - "0.12"
 script:
   - npm link
+  - npm link simplepeg
   - npm run test-travis
