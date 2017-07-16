@@ -12,3 +12,19 @@ parser.parse_grammar('GRAMMAR test a->"A";);
 const ast = parser.parse_text('A');
 console.log(ast);
 ```
+
+# Grammar example
+url.peg
+```
+GRAMMAR url
+
+url       ->  scheme "://" host pathname search hash?;
+scheme    ->  "http" "s"?;
+host      ->  hostname port?;
+hostname  ->  segment ("." segment)*;
+segment   ->  [a-z0-9-]+;
+port      ->  ":" [0-9]+;
+pathname  ->  "/" [^ ?]*;
+search    ->  ("?" [^ #]*)?;
+hash      ->  "#" [^ ]*;
+```
