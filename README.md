@@ -1,4 +1,6 @@
 # JavaScript
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/SimplePEG/JavaScript.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/SimplePEG/JavaScript.svg?branch=master)](https://travis-ci.org/SimplePEG/JavaScript)
 [![Coverage Status](https://coveralls.io/repos/github/SimplePEG/JavaScript/badge.svg?branch=master)](https://coveralls.io/github/SimplePEG/JavaScript?branch=master)
 
