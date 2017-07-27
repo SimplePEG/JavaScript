@@ -29,13 +29,13 @@
   },
   "homepage": "https://github.com/SimplePEG/JavaScript#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.1.0",
     "coveralls": "^2.11.9",
-    "eslint": "^3.12.2",
+    "eslint": "^4.3.0",
     "istanbul": "^0.4.4",
-    "mocha": "^2.4.5",
+    "mocha": "^3.4.2",
     "mocha-lcov-reporter": "^1.2.0",
     "recursive-readdir-sync": "^1.0.6",
-    "webpack": "^1.14.0"
+    "webpack": "^3.4.1"
   }
 }
