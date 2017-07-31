@@ -12,7 +12,7 @@ const parser = new SPEG();
 
 parser.parse_grammar('GRAMMAR test a->"A";);
 const ast = parser.parse_text('A');
-console.log(ast);
+console.log(JSON.strinfigy(ast, null 4));
 ```
 
 # Grammar example
