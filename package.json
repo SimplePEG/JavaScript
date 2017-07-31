@@ -33,7 +33,7 @@
     "coveralls": "^2.11.9",
     "eslint": "^4.3.0",
     "istanbul": "^0.4.4",
-    "mocha": "^3.4.2",
+    "mocha": "^3.5.0",
     "mocha-lcov-reporter": "^1.2.0",
     "recursive-readdir-sync": "^1.0.6",
     "webpack": "^3.4.1"
