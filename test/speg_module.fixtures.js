@@ -1,10 +1,21 @@
-var SPEG = require('./../src/speg').SPEG;
+var simplepeg = require('./../src/speg')
+var SPEG = simplepeg.SPEG;
 var fs = require('fs');
 var path = require('path');
+var mockery = require('mockery');
 var recursiveReadSync = require('recursive-readdir-sync');
 var valid_files = recursiveReadSync('./test/speg_fixtures');
 
 describe('speg module - fixtures - ', function() {
+    beforeEach(function(){
+        mockery.enable({ warnOnReplace: false, useCleanCache: true });
+        mockery.registerAllowable('./../parser');
+        mockery.registerMock('simplepeg', simplepeg);
+    });
+    afterEach(function() {
+        mockery.deregisterMock('simplepeg');
+        mockery.disable();
+    });
     valid_files = valid_files.filter(function(filename) {
         return /\.peg$/.test(filename);
     })
