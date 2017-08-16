@@ -46,7 +46,7 @@
         "consistent-this": "error",
         "curly": "error",
         "default-case": "error",
-        "dot-location": "error",
+        "dot-location": "off",
         "dot-notation": "error",
         "eol-last": "error",
         "eqeqeq": "error",
@@ -270,7 +270,7 @@
         ],
         "valid-jsdoc": "error",
         "vars-on-top": "off",
-        "wrap-iife": "error",
+        "wrap-iife": "off",
         "wrap-regex": "error",
         "yield-star-spacing": "error",
         "yoda": [
