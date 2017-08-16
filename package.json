@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test": "mocha test",
+    "test": "mocha test --timeout 120000",
     "prebuild": "npm run lint; npm test",
     "lint": "eslint src/",
     "build": "webpack --config webpack.config.js"
