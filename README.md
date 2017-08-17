@@ -1,5 +1,7 @@
 # JavaScript
 
+[![Join the chat at https://gitter.im/SimplePEG/JavaScript](https://badges.gitter.im/SimplePEG/JavaScript.svg)](https://gitter.im/SimplePEG/JavaScript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/SimplePEG/JavaScript.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/SimplePEG/JavaScript.svg?branch=master)](https://travis-ci.org/SimplePEG/JavaScript)
 [![Coverage Status](https://coveralls.io/repos/github/SimplePEG/JavaScript/badge.svg?branch=master)](https://coveralls.io/github/SimplePEG/JavaScript?branch=master)
