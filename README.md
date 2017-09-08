@@ -8,12 +8,12 @@
 JavaScript version ( Browser and Node.js ) of SimplePEG
 
 ```
-import {SPEG} from 'simplepeg';
-const parser = new SPEG();
+const simplepeg = require('simplepeg');
+const parser = new simplepeg.SPEG();
 
-parser.parse_grammar('GRAMMAR test a->"A";);
+parser.parse_grammar('GRAMMAR test a->"A";');
 const ast = parser.parse_text('A');
-console.log(JSON.strinfigy(ast, null 4));
+console.log(JSON.stringify(ast, null, 4));
 ```
 
 # Grammar example
